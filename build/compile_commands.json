@@ -1,0 +1,38 @@
+[
+{
+  "directory": "D:/Documentos/Concordo-LP1-main/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -Wall -O3 -DNDEBUG -o CMakeFiles/program.dir/src/main.cpp.obj -c D:/Documentos/Concordo-LP1-main/src/main.cpp",
+  "file": "D:/Documentos/Concordo-LP1-main/src/main.cpp",
+  "output": "CMakeFiles/program.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/Documentos/Concordo-LP1-main/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -Wall -O3 -DNDEBUG -o CMakeFiles/program.dir/src/usuario.cpp.obj -c D:/Documentos/Concordo-LP1-main/src/usuario.cpp",
+  "file": "D:/Documentos/Concordo-LP1-main/src/usuario.cpp",
+  "output": "CMakeFiles/program.dir/src/usuario.cpp.obj"
+},
+{
+  "directory": "D:/Documentos/Concordo-LP1-main/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -Wall -O3 -DNDEBUG -o CMakeFiles/program.dir/src/servidor.cpp.obj -c D:/Documentos/Concordo-LP1-main/src/servidor.cpp",
+  "file": "D:/Documentos/Concordo-LP1-main/src/servidor.cpp",
+  "output": "CMakeFiles/program.dir/src/servidor.cpp.obj"
+},
+{
+  "directory": "D:/Documentos/Concordo-LP1-main/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -Wall -O3 -DNDEBUG -o CMakeFiles/program.dir/src/gerenciador.cpp.obj -c D:/Documentos/Concordo-LP1-main/src/gerenciador.cpp",
+  "file": "D:/Documentos/Concordo-LP1-main/src/gerenciador.cpp",
+  "output": "CMakeFiles/program.dir/src/gerenciador.cpp.obj"
+},
+{
+  "directory": "D:/Documentos/Concordo-LP1-main/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -Wall -O3 -DNDEBUG -o CMakeFiles/program.dir/src/sistema.cpp.obj -c D:/Documentos/Concordo-LP1-main/src/sistema.cpp",
+  "file": "D:/Documentos/Concordo-LP1-main/src/sistema.cpp",
+  "output": "CMakeFiles/program.dir/src/sistema.cpp.obj"
+},
+{
+  "directory": "D:/Documentos/Concordo-LP1-main/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -Wall -O3 -DNDEBUG -o CMakeFiles/program.dir/src/canal.cpp.obj -c D:/Documentos/Concordo-LP1-main/src/canal.cpp",
+  "file": "D:/Documentos/Concordo-LP1-main/src/canal.cpp",
+  "output": "CMakeFiles/program.dir/src/canal.cpp.obj"
+}
+]
