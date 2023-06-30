@@ -168,3 +168,8 @@ void Sistema::imprimirMensagens()
     }
   }
 }
+
+std::vector<Servidor> Sistema::getAllServers()
+{
+  return servidores;
+}

@@ -96,6 +96,7 @@ public:
   std::string getCanalVizualizado();
   void setCanalVizualizado(std::string nome);
   void imprimirMensagens();
+  std::vector<Servidor> getAllServers();
 };
 
 #endif
