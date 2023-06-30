@@ -75,7 +75,9 @@ public:
   std::vector<int> getPartipantesIDs();
   void listarCanais();
   void criarCanal(std::string tipo, std::string nome);
-  Canal *acessoCanal(std::string tipo, std::string nome);
+  Canal *acessoCanal(std::string nome);
+  void imprimirCanal(std::string nome);
+  std::vector<Canal *> getCanais();
 };
 
 #endif

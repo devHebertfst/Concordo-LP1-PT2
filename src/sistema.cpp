@@ -121,3 +121,50 @@ int Sistema::getTamUsuarios()
 {
   return usuarios.size();
 }
+
+std::string Sistema::getCanalVizualizado()
+{
+  return channelVizualizado;
+}
+
+void Sistema::setCanalVizualizado(std::string nome)
+{
+  this->channelVizualizado = nome;
+}
+
+void Sistema::imprimirMensagens()
+{
+  Canal *channel = acessarServidor(getServerVizualizado())->acessoCanal(getCanalVizualizado());
+  CanalTexto *canalTexto = dynamic_cast<CanalTexto *>(channel);
+  if (canalTexto != nullptr)
+  {
+    const auto &mensagens = canalTexto->getMensagens();
+    if (mensagens.empty())
+    {
+      std::cout << "Sem mensagens cadastradas no momento" << std::endl;
+    }
+    else
+    {
+      for (const auto &mensagem : mensagens)
+      {
+        std::cout << getUsuario(mensagem.getEnviadaPor())->getNome() << mensagem.getDataHora() << mensagem.getConteudo() << std::endl;
+      }
+    }
+  }
+  else
+  {
+    CanalVoz *canalVoz = dynamic_cast<CanalVoz *>(channel);
+    if (canalVoz != nullptr)
+    {
+      const Mensagem &mensagem = canalVoz->getMensagem();
+      if (mensagem.getDataHora().empty() && mensagem.getConteudo().empty())
+      {
+        std::cout << "Sem mensagens cadastradas no momento" << std::endl;
+      }
+      else
+      {
+        std::cout << getUsuario(mensagem.getEnviadaPor())->getNome() << mensagem.getDataHora() << ": " << mensagem.getConteudo() << std::endl;
+      }
+    }
+  }
+}

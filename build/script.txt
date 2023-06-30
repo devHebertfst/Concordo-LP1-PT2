@@ -16,39 +16,28 @@ set-server-invite-code familia 1234 1232
 set-server-invite-code familia 1234
 enter-server familia
 create-channel casa-de-mae-joana texto
-create-channel casa-de-mae-joana texto
 create-channel casa-de-mae-joana2 voz
-create-channel casa-de-mae-joana2 texto
 list-channels
-list-participants
+enter-channel casa-de-mae-joana2
+list-messages
+send-message Passei no estagio galera
+list-messages
+leave-channel
+enter-channel casa-de-mae-joana
+list-messages
+send-message Oi pessoal alguém pode me ajudar?
+list-messages
+leave-channel
 leave-server
 disconnect
-disconnect
-create-user peter@gmail.com 4567 Peter Parker
-login peter@gmail.com 4567
-list-servers
-enter-server familia
-enter-server familia 12345
+create-user peter@gmail.com 1234 peter
+login peter@gmail.com 1234
 enter-server familia 1234
-list-participants
-leave-server
-leave-server
-enter-server familia
-list-participants
-create-user poul@gmail.com 1276 poul
-leave-server
-set-server-invite-code familia 4567
-create-server familia
-create-server amigos
-enter-server amigos
-list-participants
-leave-server
-remove-server familia
-remove-server amigos
-list-servers
-disconnect
-login miles@gmail.com 1245
-remove-server trabalho
-remove-server familia
-list-servers
+enter-channel casa-de-mae-joana
+send-message Eu não ksksksksksksk
+list-messages
+leave-channel
+enter-channel casa-de-mae-joana2
+send-message manda um pix que eu to pobre
+list-messages
 quit

@@ -69,3 +69,7 @@ void entrarServidor(Sistema &sistema, std::string entrada);
 void criarCanais(Sistema &sistema, std::string entrada);
 void servidor(Sistema &sistema);
 void imprimirCanal(Sistema &sistema);
+void entrarCanal(Sistema &sistema, std::string entrada);
+void canal(Sistema &sistema);
+void criarMensagem(Sistema &sistema, std::string entrada);
+void enviarMensagem(Sistema &sistema, Mensagem mensagem);

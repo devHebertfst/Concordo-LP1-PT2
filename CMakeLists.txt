@@ -8,4 +8,5 @@ src/usuario.cpp
 src/servidor.cpp
 src/gerenciador.cpp
 src/sistema.cpp
-src/canal.cpp)
+src/canal.cpp
+src/mensagem.cpp)

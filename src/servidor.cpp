@@ -1,4 +1,5 @@
 #include "Servidor.h"
+#include <memory>
 
 Servidor::Servidor() {}
 
@@ -96,29 +97,29 @@ void Servidor::criarCanal(std::string tipo, std::string nome)
   }
 }
 
-Canal *Servidor::acessoCanal(std::string tipo, std::string nome)
+Canal *Servidor::acessoCanal(std::string nome)
 {
-  if (tipo == "texto")
+  for (auto canal : canais)
   {
-    for (auto canal : canais)
+    CanalTexto *canalTexto = dynamic_cast<CanalTexto *>(canal);
+    if (canalTexto && canalTexto->getNome() == nome)
     {
-      CanalTexto *canalTexto = dynamic_cast<CanalTexto *>(canal);
-      if (canalTexto && canalTexto->getNome() == nome)
-      {
-        return canalTexto;
-      }
+      return canalTexto;
     }
   }
-  else if (tipo == "voz")
+
+  for (auto canal : canais)
   {
-    for (auto canal : canais)
+    CanalVoz *canalVoz = dynamic_cast<CanalVoz *>(canal);
+    if (canalVoz && canalVoz->getNome() == nome)
     {
-      CanalVoz *canalVoz = dynamic_cast<CanalVoz *>(canal);
-      if (canalVoz && canalVoz->getNome() == nome)
-      {
-        return canalVoz;
-      }
+      return canalVoz;
     }
   }
   return nullptr;
+}
+
+std::vector<Canal *> Servidor::getCanais()
+{
+  return canais;
 }

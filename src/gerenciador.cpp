@@ -1,6 +1,8 @@
 #include "Gerenciador.h"
 #include <sstream>
 #include <cctype>
+#include "time.h"
+#include <iomanip>
 void menu(Sistema &sistema)
 {
   std::string entrada;
@@ -357,14 +359,14 @@ void criarCanais(Sistema &sistema, std::string entrada)
   iss >> comando >> nome >> tipo;
   if (!nome.empty() && !tipo.empty())
   {
-    if (sistema.acessarServidor(sistema.getServerVizualizado())->acessoCanal(tipo, nome) == nullptr)
+    if (sistema.acessarServidor(sistema.getServerVizualizado())->acessoCanal(nome) == nullptr)
     {
       sistema.acessarServidor(sistema.getServerVizualizado())->criarCanal(tipo, nome);
       servidor(sistema);
     }
     else
     {
-      std::cout << "Canal de " << tipo << " '" << nome << "' já existe" << std::endl;
+      std::cout << "Canal '" << nome << "' já existe" << std::endl;
       servidor(sistema);
     }
   }
@@ -405,10 +407,122 @@ void servidor(Sistema &sistema)
       criarCanais(sistema, entrada);
       break;
     }
+    else if (entrada.substr(0, 13) == "enter-channel")
+    {
+      entrarCanal(sistema, entrada);
+      break;
+    }
     else
     {
       std::cout << "Comando invalido" << std::endl;
       servidor(sistema);
+      break;
+    }
+  }
+}
+
+void entrarCanal(Sistema &sistema, std::string entrada)
+{
+  std::istringstream iss(entrada);
+  std::string comando, nome, vazio;
+  iss >> comando >> nome >> vazio;
+  if (!nome.empty() && vazio.empty())
+  {
+    if (sistema.acessarServidor(sistema.getServerVizualizado())->acessoCanal(nome) != nullptr)
+    {
+      std::cout << "Entrou no canal '" << nome << "'" << std::endl;
+      sistema.setCanalVizualizado(nome);
+      canal(sistema);
+    }
+    else
+    {
+      std::cout << "Canal '" << nome << "' não existe" << std::endl;
+      servidor(sistema);
+    }
+  }
+  else
+  {
+    std::cout << "Dados invalidos" << std::endl;
+    servidor(sistema);
+  }
+}
+
+void criarMensagem(Sistema &sistema, std::string entrada)
+{
+  std::istringstream iss(entrada);
+  std::string comando, conteudo, data, horas, minutos;
+  iss >> comando;
+  std::getline(iss, conteudo);
+  if (!conteudo.empty())
+  {
+    conteudo = conteudo.substr(conteudo.find_first_not_of(' '));
+    time_t tempoAtual = time(nullptr);
+    struct tm *dataHoraAtual = localtime(&tempoAtual);
+    std::ostringstream oss;
+    oss << std::put_time(dataHoraAtual, "<%d/%m/%Y - %H:%M>");
+    std::string dataHora = oss.str();
+    Mensagem mensagem(dataHora, sistema.getUsuarioLogado(), conteudo);
+    enviarMensagem(sistema, mensagem);
+  }
+  else
+  {
+    std::cout << "Conteudo da mensagem não pode ser vazio" << std::endl;
+    canal(sistema);
+  }
+}
+
+void enviarMensagem(Sistema &sistema, Mensagem mensagem)
+{
+  Canal *channel = sistema.acessarServidor(sistema.getServerVizualizado())->acessoCanal(sistema.getCanalVizualizado());
+  CanalTexto *canalTexto = dynamic_cast<CanalTexto *>(channel);
+  if (canalTexto)
+  {
+    canalTexto->adicionarMensagem(mensagem);
+  }
+  else
+  {
+    CanalVoz *canalVoz = dynamic_cast<CanalVoz *>(channel);
+    if (canalVoz)
+    {
+      canalVoz->setMensagem(mensagem);
+    }
+  }
+  canal(sistema);
+}
+
+void canal(Sistema &sistema)
+{
+  std::string entrada;
+  std::getline(std::cin, entrada);
+  while (true)
+  {
+    if (entrada == "leave-channel")
+    {
+      std::cout << "Saindo do canal" << std::endl;
+      sistema.setCanalVizualizado("");
+      servidor(sistema);
+      break;
+    }
+    else if (entrada == "list-messages")
+    {
+      sistema.imprimirMensagens();
+      canal(sistema);
+      break;
+    }
+    else if (entrada.substr(0, 12) == "send-message")
+    {
+      criarMensagem(sistema, entrada);
+      break;
+    }
+    else if (entrada == "quit")
+    {
+      std::cout << "Saindo do concordo" << std::endl;
+      break;
+    }
+    else
+    {
+      std::cout << "Comando invalido" << std::endl;
+      canal(sistema);
       break;
     }
   }

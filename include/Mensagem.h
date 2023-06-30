@@ -12,9 +12,11 @@ private:
   std::string conteudo;
 
 public:
-  std::string getDataHora();
-  int getEnviadaPor();
-  std::string getConteudo();
+  Mensagem();
+  Mensagem(std::string dataHora, int enviadaPor, std::string conteudo);
+  std::string getDataHora() const;
+  int getEnviadaPor() const;
+  std::string getConteudo() const;
 };
 
 #endif

@@ -24,6 +24,8 @@ private:
 
 public:
   CanalTexto(std::string nome) : Canal(nome) {}
+  std::vector<Mensagem> getMensagens();
+  void adicionarMensagem(Mensagem mensagem);
   virtual void imprimir();
 };
 
@@ -34,6 +36,8 @@ private:
 
 public:
   CanalVoz(std::string nome) : Canal(nome) {}
+  Mensagem getMensagem();
+  void setMensagem(Mensagem mensagem);
   virtual void imprimir();
 };
 
