@@ -10,6 +10,7 @@ list-servers 123
 list-servers
 set-server-desc Aranhas Este servidor serve como minha casa, sempre estarei nele
 set-server-invite-code Aranhas 1234 1232
+set-server-invite-code Aranhas
 set-server-invite-code Aranhas 1234
 enter-server Aranhas
 create-channel Cabeças de teia texto
