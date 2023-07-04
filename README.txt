@@ -1,4 +1,4 @@
-Trabalho linguagens de programação 1, projeto 3, parte 1
+Trabalho linguagens de programação 1, projeto 3, parte 1 e 2
 Componentes: Hebert França da Silva Torres
 
 O seguinte projeto fo realizado utilizando a linguagem c++ e compilado via cmake.
