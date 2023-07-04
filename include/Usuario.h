@@ -16,32 +16,32 @@ public:
   Usuario(std::string nome, std::string email, std::string senha);
   /**
    * @brief Retorna o id do usuário
-   * 
-   * @return int 
+   *
+   * @return int
    */
   int getId();
   /**
    * @brief Retorna o nome do usuário
-   * 
-   * @return std::string 
+   *
+   * @return std::string
    */
   std::string getNome();
   /**
    * @brief Retorna o email do usuário
-   * 
-   * @return std::string 
+   *
+   * @return std::string
    */
   std::string getEmail();
   /**
    * @brief Retorna a senha do usuário
-   * 
-   * @return std::string 
+   *
+   * @return std::string
    */
   std::string getSenha();
   /**
-   * @brief Muda a senha do usuário
-   * 
-   * @param id 
+   * @brief Define o id do usuário
+   *
+   * @param id
    */
   void setId(int id);
 };
