@@ -59,6 +59,8 @@
     "numbers": "cpp",
     "sstream": "cpp",
     "cinttypes": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "xlocmon": "cpp",
+    "xloctime": "cpp"
   }
 }

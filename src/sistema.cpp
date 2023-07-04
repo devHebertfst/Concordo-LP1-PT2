@@ -147,7 +147,7 @@ void Sistema::imprimirMensagens()
     {
       for (const auto &mensagem : mensagens)
       {
-        std::cout << getUsuario(mensagem.getEnviadaPor())->getNome() << mensagem.getDataHora() << mensagem.getConteudo() << std::endl;
+        std::cout << getUsuario(mensagem.getEnviadaPor())->getNome() << mensagem.getDataHora() << ": " << mensagem.getConteudo() << std::endl;
       }
     }
   }

@@ -93,9 +93,28 @@ public:
    * @param nome
    */
   void imprimirParticipantes(std::string nome);
+  /**
+   * @brief Retorna o canal vizualizado
+   *
+   * @return std::string
+   */
   std::string getCanalVizualizado();
+  /**
+   * @brief Define o canal vizualizado no momento
+   *
+   * @param nome
+   */
   void setCanalVizualizado(std::string nome);
+  /**
+   * @brief Imprime as mensagens de um canal
+   *
+   */
   void imprimirMensagens();
+  /**
+   * @brief Retorna o vetor de todos os servidores
+   *
+   * @return std::vector<Servidor>
+   */
   std::vector<Servidor> getAllServers();
 };
 

@@ -8,6 +8,7 @@ create-server familia 123
 create-server familia
 list-servers 123
 list-servers
+enter-server amigos
 set-serve-desc 123
 set-server-desc amigos Amigo de verdade ta aqui
 set-server-desc familia Este servidor serve como minha casa, sempre estarei nele
@@ -15,9 +16,14 @@ set-server-invite-code amigos 1234
 set-server-invite-code familia 1234 1232
 set-server-invite-code familia 1234
 enter-server familia
+create-channel casa-de-mae-joana texto voz
+create-channel casa-de-mae-joana podcast
+create-channel casa-de-mae-joana texto
 create-channel casa-de-mae-joana texto
 create-channel casa-de-mae-joana2 voz
 list-channels
+enter-channel casa-de-mae-joana2 para
+enter-channel casa-de-mae-joana3
 enter-channel casa-de-mae-joana2
 list-messages
 send-message Passei no estagio galera

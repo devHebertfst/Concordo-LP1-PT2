@@ -1,4 +1,5 @@
 #include "Gerenciador.h"
+
 #include <sstream>
 #include <cctype>
 #include "time.h"
@@ -46,8 +47,6 @@ void criarUsuario(Sistema &sistema, std::string entrada)
 
   iss >> comando >> email >> senha;
   std::getline(iss, nome);
-
-  // Remover possíveis espaços extras no início do nome
 
   if (!email.empty() && !senha.empty() && !nome.empty())
   {
@@ -210,7 +209,7 @@ void descServidor(Sistema &sistema, std::string entrada)
       if (sistema.acessarServidor(nome)->getIdDono() == sistema.getUsuarioLogado())
       {
         sistema.acessarServidor(nome)->setDescricao(desc);
-        std::cout << "Descricao do servidor " << nome << " modificada" << std::endl;
+        std::cout << "Descricao do servidor '" << nome << "' modificada" << std::endl;
       }
       else
       {
@@ -241,11 +240,11 @@ void removerServidor(Sistema &sistema, std::string entrada)
       if (sistema.acessarServidor(nome)->getIdDono() == sistema.getUsuarioLogado())
       {
         sistema.removerServidor(nome);
-        std::cout << "Servidor " << nome << " removido" << std::endl;
+        std::cout << "Servidor '" << nome << "' removido" << std::endl;
       }
       else
       {
-        std::cout << "Voce nao e dono do servidor " << nome << std::endl;
+        std::cout << "Voce não é dono do servidor '" << nome << "'" << std::endl;
       }
     }
     else
@@ -275,7 +274,7 @@ void setServerCode(Sistema &sistema, std::string entrada)
         if (codigo != "")
         {
           sistema.acessarServidor(nome)->setCodigoConvite(codigo);
-          std::cout << "Codigo de convite do servidor " << nome << " modificado" << std::endl;
+          std::cout << "Codigo de convite do servidor '" << nome << "' modificado" << std::endl;
         }
         else
         {
@@ -342,7 +341,8 @@ void entrarServidor(Sistema &sistema, std::string entrada)
     }
     else
     {
-      std::cout << "Servidor " << nome << " nao existe" << std::endl;
+      std::cout << "Servidor '" << nome << "' nao existe" << std::endl;
+      menuLogado(sistema);
     }
   }
   else
@@ -355,21 +355,31 @@ void entrarServidor(Sistema &sistema, std::string entrada)
 void criarCanais(Sistema &sistema, std::string entrada)
 {
   std::istringstream iss(entrada);
-  std::string comando, nome, tipo;
-  iss >> comando >> nome >> tipo;
-  if (!nome.empty() && !tipo.empty())
+  std::string comando, nome, tipo, vazio;
+  iss >> comando >> nome >> tipo >> vazio;
+  if (!nome.empty() && !tipo.empty() && vazio.empty())
   {
     if (sistema.acessarServidor(sistema.getServerVizualizado())->acessoCanal(nome) == nullptr)
     {
-      sistema.acessarServidor(sistema.getServerVizualizado())->criarCanal(tipo, nome);
-      servidor(sistema);
+      if (tipo == "texto" || tipo == "voz")
+      {
+        sistema.acessarServidor(sistema.getServerVizualizado())->criarCanal(tipo, nome);
+      }
+      else
+      {
+        std::cout << "Tipo inválido" << std::endl;
+      }
     }
     else
     {
       std::cout << "Canal '" << nome << "' já existe" << std::endl;
-      servidor(sistema);
     }
   }
+  else
+  {
+    std::cout << "Dados invalidos" << std::endl;
+  }
+  servidor(sistema);
 }
 
 void servidor(Sistema &sistema)
@@ -386,7 +396,7 @@ void servidor(Sistema &sistema)
     }
     else if (entrada == "leave-server")
     {
-      std::cout << "Saindo do servidor " << sistema.getServerVizualizado() << std::endl;
+      std::cout << "Saindo do servidor '" << sistema.getServerVizualizado() << "'" << std::endl;
       sistema.setServerVizualizado("");
       menuLogado(sistema);
       break;

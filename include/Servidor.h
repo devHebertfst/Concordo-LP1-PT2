@@ -73,10 +73,30 @@ public:
    * @return std::vector<int>
    */
   std::vector<int> getPartipantesIDs();
+  /**
+   * @brief Imprime todos os canais
+   *
+   */
   void listarCanais();
+  /**
+   * @brief Cria um canal
+   *
+   * @param tipo
+   * @param nome
+   */
   void criarCanal(std::string tipo, std::string nome);
+  /**
+   * @brief Retorna um canal
+   *
+   * @param nome
+   * @return Canal*
+   */
   Canal *acessoCanal(std::string nome);
-  void imprimirCanal(std::string nome);
+  /**
+   * @brief Retorna o vetor de canais
+   *
+   * @return std::vector<Canal *>
+   */
   std::vector<Canal *> getCanais();
 };
 

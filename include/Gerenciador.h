@@ -1,3 +1,6 @@
+#ifndef GERENCIADOR_H
+#define GERENCIADOR_H
+
 #include "Sistema.h"
 
 /**
@@ -66,10 +69,40 @@ void entrarServidor(Sistema &sistema, std::string entrada);
  *
  * @param sistema
  */
-void criarCanais(Sistema &sistema, std::string entrada);
 void servidor(Sistema &sistema);
-void imprimirCanal(Sistema &sistema);
+/**
+ * @brief Criação de canais
+ *
+ * @param sistema
+ * @param entrada
+ */
+void criarCanais(Sistema &sistema, std::string entrada);
+/**
+ * @brief Entrar em um canal
+ *
+ * @param sistema
+ * @param entrada
+ */
 void entrarCanal(Sistema &sistema, std::string entrada);
+/**
+ * @brief Menu de canais
+ *
+ * @param sistema
+ */
 void canal(Sistema &sistema);
+/**
+ * @brief Criação de mensagens
+ *
+ * @param sistema
+ * @param entrada
+ */
 void criarMensagem(Sistema &sistema, std::string entrada);
+/**
+ * @brief Envio de mensagens para um canal
+ *
+ * @param sistema
+ * @param mensagem
+ */
 void enviarMensagem(Sistema &sistema, Mensagem mensagem);
+
+#endif
