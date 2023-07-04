@@ -9,6 +9,11 @@ void Sistema::adicionarServidor(Servidor server)
 
 void Sistema::removerServidor(std::string nome)
 {
+
+  for (Canal *canais : acessarServidor(nome)->getCanais())
+  {
+    delete canais;
+  }
   servidores.erase(std::remove_if(servidores.begin(), servidores.end(), [&nome](Servidor &servidor)
                                   { return servidor.getNome() == nome; }),
                    servidores.end());

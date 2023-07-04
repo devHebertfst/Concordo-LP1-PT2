@@ -4,6 +4,7 @@
 #include <cctype>
 #include "time.h"
 #include <iomanip>
+
 void menu(Sistema &sistema)
 {
   std::string entrada;

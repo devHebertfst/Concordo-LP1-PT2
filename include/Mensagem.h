@@ -13,7 +13,6 @@ private:
 
 public:
   Mensagem();
-  ~Mensagem() {}
   Mensagem(std::string dataHora, int enviadaPor, std::string conteudo);
   /**
    * @brief Retorna a data e hora de uma mensagem

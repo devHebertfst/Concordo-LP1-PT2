@@ -4,46 +4,68 @@ create-user user@gmail.com
 login miles@gmail.com 1245 12
 login miles@gmail.com
 login miles@gmail.com 1245
-create-server familia 123
-create-server familia
+create-server Aranhas 123
+create-server Aranhas
 list-servers 123
 list-servers
-enter-server amigos
-set-serve-desc 123
-set-server-desc amigos Amigo de verdade ta aqui
-set-server-desc familia Este servidor serve como minha casa, sempre estarei nele
-set-server-invite-code amigos 1234
-set-server-invite-code familia 1234 1232
-set-server-invite-code familia 1234
-enter-server familia
-create-channel casa-de-mae-joana texto voz
-create-channel casa-de-mae-joana podcast
-create-channel casa-de-mae-joana texto
-create-channel casa-de-mae-joana texto
-create-channel casa-de-mae-joana2 voz
+set-server-desc Aranhas Este servidor serve como minha casa, sempre estarei nele
+set-server-invite-code Aranhas 1234 1232
+set-server-invite-code Aranhas 1234
+enter-server Aranhas
+create-channel Cabeças de teia texto
+create-channel Cabeças-de-teia podcast
+create-channel Cabeças-de-teia podcast video
+create-channel Cabeças-de-teia texto
+create-channel avisos voz
+create-channel terapia texto
 list-channels
-enter-channel casa-de-mae-joana2 para
-enter-channel casa-de-mae-joana3
-enter-channel casa-de-mae-joana2
+enter-channel Cabeças-de-teias
+enter-channel Cabeças-de-teia
 list-messages
-send-message Passei no estagio galera
+send-message Eae qual o vilão pra esse final de semana?
 list-messages
+list-participants
 leave-channel
-enter-channel casa-de-mae-joana
-list-messages
-send-message Oi pessoal alguém pode me ajudar?
+enter-channel avisos
+send-message Vingadores estao a procura de estagiarios
 list-messages
 leave-channel
 leave-server
 disconnect
-create-user peter@gmail.com 1234 peter
-login peter@gmail.com 1234
-enter-server familia 1234
-enter-channel casa-de-mae-joana
-send-message Eu não ksksksksksksk
+disconnect
+create-user peter@gmail.com 4567 Peter Parker
+login peter@gmail.com 4567
+list-servers
+enter-server Aranhas
+enter-server Aranhas 12345
+enter-server Aranhas 1234
+list-participants
+list-channels
+enter-channel avisos
+list-messages
+send-message Todos convidados para o meu aniversario
+list-messages
+leave-channel asd
+leave-channel
+enter-channel Cabeças-de-teia
+list-messages
+leave-server
+send-message to de folga
 list-messages
 leave-channel
-enter-channel casa-de-mae-joana2
-send-message manda um pix que eu to pobre
-list-messages
+leave-server
+leave-server
+enter-server Aranhas
+list-participants
+leave-server
+create-server amigos
+list-servers
+remove-server Aranhas
+remove-server amigos
+list-servers
+disconnect
+login miles@gmail.com 1245
+remove-server trabalho
+remove-server Aranhas
+list-servers
 quit
